@@ -55,13 +55,6 @@ Full-text index support has been disabled by default as of Vanilla 4. To enable 
 -   [File a detailed bug report](https://github.com/vanilla/vanilla/issues/new?template=bug_report.md)
 -   [Plan out a new feature](https://github.com/vanilla/vanilla/issues/new?template=new_feature.md)
 
-## Reporting Security Issues
-
-Please disclose security issues responsibly by emailing support@vanillaforums.com with a full description or join our [bug bounty program](https://hackerone.com/vanilla). We cannot award bounties outside that program.
-
-We'll work on releasing an updated version as quickly as possible.
-Please do not email non-security issues; use the [issue tracker](https://github.com/vanilla/vanilla/issues) instead.
-
 ## Building Releases
 
 Vanilla releases are built using [Phing](https://www.phing.info/) to create a pre-built deploy-ready copies of Vanilla. To build these run the following in the root of the repository.
