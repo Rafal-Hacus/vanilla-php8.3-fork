@@ -119,13 +119,212 @@ function setContainer(?Gdn_Container $container = null)
 
 ---
 
+## Setup Issues Encountered (Infrastructure)
+
+### Issue #3: Missing .htaccess File (404 Errors)
+
+**Date:** 2025-12-07
+**Status:** ✅ FIXED
+**Symptom:** All URLs showed 404 Not Found, site redirected to `/dashboard/setup` but page didn't exist
+
+**Root Cause:**
+- `.htaccess` file was gitignored and not present in the repository
+- Apache couldn't rewrite URLs without it
+- Pretty URLs like `/dashboard/setup` failed because they're not real files
+
+**Solution:**
+Created `.htaccess` with URL rewriting rules:
+```apache
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ index.php [QSA,L]
+```
+
+**What This Does:**
+1. Checks if requested URL is NOT a real directory (`!-d`)
+2. Checks if requested URL is NOT a real file (`!-f`)
+3. If both true, sends request to `index.php` which processes the URL
+
+**File Location:** `/var/www/html/.htaccess`
+
+---
+
+### Issue #4: File Permission Errors (403 Forbidden / Write Failures)
+
+**Date:** 2025-12-07
+**Status:** ✅ FIXED
+**Symptom:**
+- Initial: `403 Forbidden - unable to read htaccess file`
+- Later: `Unable to write to config file when saving`
+
+**Root Cause:**
+- Files created by root user, but Apache runs as `www-data`
+- Apache couldn't read `.htaccess` (owned by root)
+- Vanilla couldn't write to `conf/config.php` during setup
+
+**Solution:**
+Fixed all file ownership and permissions:
+```bash
+chown -R www-data:www-data /var/www/html/
+find /var/www/html/ -type d -exec chmod 755 {} \;
+find /var/www/html/ -type f -exec chmod 644 {} \;
+chmod -R 775 /var/www/html/cache /var/www/html/conf /var/www/html/uploads
+```
+
+**Permission Breakdown:**
+- **Directories:** 755 (rwxr-xr-x) - Owner can write, everyone can read/browse
+- **Files:** 644 (rw-r--r--) - Owner can write, everyone can read
+- **Writable dirs** (cache/conf/uploads): 775 (rwxrwxr-x) - Owner+group can write
+
+**Why This Matters:**
+- Apache runs as user `www-data`
+- If files owned by `root`, Apache can't read/write them
+- Cache and config directories MUST be writable for Vanilla to function
+
+---
+
+### Issue #5: Database Connection Errors
+
+**Date:** 2025-12-07
+**Status:** ✅ FIXED
+**Symptom:** `php_network_getaddresses: getaddrinfo for database failed`
+
+**Root Cause:**
+- Default config tried to connect to hostname `database` (Docker-style)
+- No such hostname exists on standalone server
+- Database credentials were missing
+
+**Solution:**
+Created `/var/www/html/conf/config.php` with correct credentials:
+```php
+$Configuration['Database']['Host'] = 'localhost';
+$Configuration['Database']['Name'] = 'vanilla';
+$Configuration['Database']['User'] = 'vanilla_user';
+$Configuration['Database']['Password'] = 'As044200';
+```
+
+**Database Setup** (for reference):
+```sql
+CREATE DATABASE vanilla CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE USER 'vanilla_user'@'localhost' IDENTIFIED BY 'As044200';
+GRANT ALL PRIVILEGES ON vanilla.* TO 'vanilla_user'@'localhost';
+FLUSH PRIVILEGES;
+```
+
+---
+
+### Issue #6: Missing Vanilla Application (Class Not Found)
+
+**Date:** 2025-12-07
+**Status:** ✅ FIXED
+**Symptom:** `Class Vanilla\Forum\Draft\ScheduledDraftService does not exist`
+
+**Root Cause:**
+- Vanilla application (forum functionality) was not enabled in config
+- Only Dashboard and Conversations apps were enabled by default
+- Classes in `/applications/vanilla/` couldn't be loaded
+
+**Solution:**
+Added to `config.php`:
+```php
+$Configuration['EnabledApplications']['Vanilla'] = 'vanilla';
+```
+
+**What This Does:**
+- Enables the forum application (discussions, comments, categories)
+- Loads classes from `/applications/vanilla/` directory
+- Vanilla Forums has 3 main applications:
+  - **Dashboard:** Admin interface
+  - **Conversations:** Private messages
+  - **Vanilla:** Forum discussions (main app)
+
+---
+
+### Issue #7: Incompatible Plugins (QnA, Ideation)
+
+**Date:** 2025-12-07
+**Status:** ✅ FIXED (Disabled)
+**Symptom:** `Class Vanilla\Forums\Modules\DiscussionTabFactory not found`
+
+**Root Cause:**
+- QnA (Questions & Answers) plugin expects classes that don't exist in Vanilla 2025
+- Built for older Vanilla 2018 version
+- Plugin tries to load during bootstrap and crashes
+
+**Solution:**
+Disabled incompatible plugins in `config.php`:
+```php
+$Configuration['EnabledPlugins']['QnA'] = false;
+$Configuration['EnabledPlugins']['ideation'] = false;
+```
+
+**Notes:**
+- These plugins will need to be updated for PHP 8.4 compatibility later
+- For now, focusing on getting core Vanilla working
+- Can re-enable and fix plugins one-by-one after core is stable
+
+---
+
+### Issue #8: Cache Corruption
+
+**Date:** 2025-12-07
+**Status:** ✅ FIXED
+**Symptom:** Old plugin settings persisted even after disabling
+
+**Root Cause:**
+- Vanilla caches addon/plugin configurations in `/cache/` directory
+- Cached data showed QnA as enabled even after we disabled it
+- Cache wasn't automatically invalidated when config changed
+
+**Solution:**
+```bash
+rm -rf /var/www/html/cache/*
+```
+
+**When to Clear Cache:**
+- After changing enabled plugins/applications
+- After updating configuration
+- When seeing weird "class not found" errors
+- After major code changes
+
+**Cache Directory:**
+- Location: `/var/www/html/cache/`
+- Must be writable by www-data (775 permissions)
+- Automatically recreated by Vanilla when needed
+
+---
+
+## Current Status: Site Running! 🎉
+
+**As of:** 2025-12-07
+**URL:** http://10.0.1.4/
+**Status:** ✅ Successfully loading, showing "Site not installed" page
+
+### What's Working:
+- ✅ Apache + PHP 8.4 serving requests
+- ✅ URL rewriting (.htaccess working)
+- ✅ Database connection established
+- ✅ Composer dependencies installed
+- ✅ Core Vanilla applications enabled
+- ✅ File permissions correct
+
+### What's Next:
+- 🔄 Enable PHP error display on website (for debugging)
+- 🔄 Run Vanilla installation
+- 🔄 Fix PHP 8.4 deprecation warnings
+- 🔄 Test forum functionality
+
+---
+
 ## Statistics
 
-- **Errors Found:** 2 (1 dependency, 1 code)
-- **Errors Fixed:** 1
-- **Blockers:** 0
+- **Total Issues Found:** 8 (1 dependency, 1 code, 6 infrastructure)
+- **Issues Fixed:** 7
+- **Blockers Remaining:** 0
 - **Deprecation Warnings:** 8+ (implicit nullable params)
 - **Package Warnings:** 3 (abandoned packages)
+- **Site Status:** ✅ Running on PHP 8.4!
 
 ---
 
