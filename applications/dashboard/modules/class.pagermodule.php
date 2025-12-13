@@ -98,6 +98,9 @@ class PagerModule extends Gdn_Module
     /** @var int|null The total number of pages. */
     protected $_PageCount;
 
+    /** @var mixed The record being paged through. */
+    public $Record;
+
     /**
      *
      *

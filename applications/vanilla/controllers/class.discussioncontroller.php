@@ -38,6 +38,21 @@ class DiscussionController extends VanillaController
     /** @var object|null */
     public $Discussion;
 
+    /** @var Gdn_Form */
+    public $Form;
+
+    /** @var int */
+    public $Offset;
+
+    /** @var PagerModule */
+    public $Pager;
+
+    /** @var int */
+    public $DiscussionID;
+
+    /** @var bool */
+    public $CanEditComments;
+
     /**
      *
      *

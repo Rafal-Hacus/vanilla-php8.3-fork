@@ -14,9 +14,9 @@ $Configuration['EnabledPlugins']['swagger-ui'] = true;
 $Configuration['EnabledApplications']['Dashboard'] = 'dashboard';
 $Configuration['EnabledApplications']['Conversations'] = 'conversations';
 $Configuration['EnabledPlugins']['rich-editor'] = true;
-$Configuration['EnabledPlugins']['FederatedSearch'] = true;
+// $Configuration['EnabledPlugins']['FederatedSearch'] = true; // Enterprise addon, not available in OSS
 $Configuration['EnabledPlugins']['QnA'] = true;
-$Configuration['EnabledPlugins']['ideation'] = true;
+// $Configuration['EnabledPlugins']['ideation'] = true; // Enterprise addon, not available in OSS
 $Configuration['EnabledPlugins']['sitemaps'] = true;
 
 // ImageUpload
