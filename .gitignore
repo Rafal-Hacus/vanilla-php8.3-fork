@@ -141,3 +141,15 @@ yarn-error.log
 !.yarn/sdks
 !.yarn/versions
 applications/dashboard/.yarn/*
+
+# PHP 8.4 migration scripts (local only)
+fix-php84-nullable.php
+install-vanilla.php
+run-structure.php
+
+# SSH keys (never commit these!)
+github
+github.pub
+*.pem
+*.key
+id_rsa*

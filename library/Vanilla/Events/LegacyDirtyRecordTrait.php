@@ -26,7 +26,7 @@ trait LegacyDirtyRecordTrait
      *
      * @param string $prefix
      */
-    public function applyDirtyWheres(string $prefix = "", \Gdn_SQLDriver $sql = null)
+    public function applyDirtyWheres(string $prefix = "", ?\Gdn_SQLDriver $sql = null)
     {
         $model = $this->getLegacyModel();
         $type = strtolower($model->Name);

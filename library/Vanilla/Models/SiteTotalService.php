@@ -86,7 +86,7 @@ class SiteTotalService
      * @param SiteSectionInterface|null $siteSection
      * @return int
      */
-    public function getTotalForType(string $recordType, SiteSectionInterface $siteSection = null): int
+    public function getTotalForType(string $recordType, ?SiteSectionInterface $siteSection = null): int
     {
         $provider = $this->siteTotalProviders[strtolower($recordType)] ?? null;
         if ($provider === null) {

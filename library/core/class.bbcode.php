@@ -34,7 +34,7 @@ class BBCode extends Gdn_Pluggable
     /**
      * @param EventManager $eventManager
      */
-    public function __construct(EventManager $eventManager = null)
+    public function __construct(?EventManager $eventManager = null)
     {
         // There are some old empty constructed usages.
         $this->eventManager = $eventManager ?? \Gdn::getContainer()->get(EventManager::class);

@@ -75,7 +75,7 @@ class NeonThemeAsset extends JsonThemeAsset
      *
      * @return Data
      */
-    public function render(string $asType = null): Data
+    public function render(?string $asType = null): Data
     {
         switch ($asType) {
             case ThemeAssetFactory::ASSET_TYPE_NEON:

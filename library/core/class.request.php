@@ -551,7 +551,7 @@ class Gdn_Request implements RequestInterface
      * @return string|null
      * @deprecated Use `getMethod()` and `setMethod()`.
      */
-    public function requestMethod(string $method = null)
+    public function requestMethod(?string $method = null)
     {
         return $this->_environmentElement("METHOD", $method, false);
     }

@@ -20,7 +20,7 @@ class TestDatabase extends \Gdn_Database
      * @param PDO|null $pdo
      * @psalm-suppress UndefinedConstant
      */
-    public function __construct(PDO $pdo = null)
+    public function __construct(?PDO $pdo = null)
     {
         $config = [
             "Engine" => "MySQL",

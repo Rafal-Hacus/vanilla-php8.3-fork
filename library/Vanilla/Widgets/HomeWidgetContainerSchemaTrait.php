@@ -42,9 +42,9 @@ trait HomeWidgetContainerSchemaTrait
     public static function widgetTitleSchema(
         string $placeholder = null,
         bool $required = false,
-        string $defaultValue = null,
+        ?string $defaultValue = null,
         bool $allowDynamic = true,
-        string $defaultTitleType = null
+        ?string $defaultTitleType = null
     ): Schema {
         $title = $required ? "title:s" : "title:s?";
         $titleSchema = [
@@ -120,7 +120,7 @@ trait HomeWidgetContainerSchemaTrait
     public static function widgetDescriptionSchema(
         string $placeholder = null,
         bool $required = false,
-        string $defaultValue = null,
+        ?string $defaultValue = null,
         bool $allowDynamic = true
     ): Schema {
         $description = $required ? "description:s" : "description:s?";
@@ -189,7 +189,7 @@ trait HomeWidgetContainerSchemaTrait
      *
      * @return Schema
      */
-    public static function widgetSubtitleSchema(string $fieldName = "subtitle", string $placeholder = null): Schema
+    public static function widgetSubtitleSchema(string $fieldName = "subtitle", ?string $placeholder = null): Schema
     {
         return Schema::parse([
             "{$fieldName}:s?" => [
@@ -265,7 +265,7 @@ trait HomeWidgetContainerSchemaTrait
      */
     public static function containerOptionsSchema(
         string $fieldName = "options",
-        array $allowedProperties = null,
+        ?array $allowedProperties = null,
         bool $minimalProperties = false,
         array $displayTypes = [
             "grid" => "Grid",
@@ -392,7 +392,7 @@ trait HomeWidgetContainerSchemaTrait
      * @param string|null $description
      * @return Schema
      */
-    public static function viewAllSchema(string $description = null): Schema
+    public static function viewAllSchema(?string $description = null): Schema
     {
         $schema = Schema::parse([
             "showViewAll:b?" => [

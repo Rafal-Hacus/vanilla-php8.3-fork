@@ -43,7 +43,7 @@ final class BlotGroupTextFragment implements TextFragmentInterface
      * @param int $from The starting ordinal in the group that the text represents.
      * @param ?int $to The ending ordinal in the group that the text represents.
      */
-    public function __construct(BlotGroup $blotGroup, BlotGroupCollection $parent, int $from = 0, int $to = null)
+    public function __construct(BlotGroup $blotGroup, BlotGroupCollection $parent, int $from = 0, ?int $to = null)
     {
         $this->blotGroup = $blotGroup;
         $this->parent = $parent;

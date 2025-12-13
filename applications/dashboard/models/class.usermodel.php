@@ -223,7 +223,7 @@ class UserModel extends Gdn_Model implements
      * @throws ContainerException
      * @throws NotFoundException
      */
-    public function __construct(EventManager $eventManager = null, Gdn_Validation $validation = null)
+    public function __construct(?EventManager $eventManager = null, ?Gdn_Validation $validation = null)
     {
         parent::__construct("User", $validation);
 

@@ -205,7 +205,7 @@ abstract class Page implements InjectableInterface, CustomExceptionHandler, Page
      *
      * @return $this Own instance for chaining.
      */
-    protected function setSeoContent(string $viewPathOrView, array $viewData = null): self
+    protected function setSeoContent(string $viewPathOrView, ?array $viewData = null): self
     {
         // No view data so assume the view is rendered already.
         if ($viewData === null) {
@@ -260,7 +260,7 @@ abstract class Page implements InjectableInterface, CustomExceptionHandler, Page
      *
      * @return $this
      */
-    public function requiresSession(string $redirectTarget = null): self
+    public function requiresSession(?string $redirectTarget = null): self
     {
         $redirectTarget = $redirectTarget ?? \Gdn::request()->getUrl();
         if (!$this->session->isValid()) {

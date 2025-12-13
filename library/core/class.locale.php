@@ -103,7 +103,7 @@ class Gdn_Locale extends Gdn_Pluggable implements LocaleInterface
      * @param AddonManager|null $addonManager
      * @param ConfigurationInterface $config
      */
-    public function __construct($localeName, AddonManager $addonManager = null, ConfigurationInterface $config)
+    public function __construct($localeName, ConfigurationInterface $config, ?AddonManager $addonManager = null)
     {
         parent::__construct();
         $this->ClassName = __CLASS__;

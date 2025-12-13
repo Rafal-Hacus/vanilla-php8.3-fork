@@ -430,7 +430,7 @@ class AddonModel implements LoggerAwareInterface
             );
         }
 
-        $addons = array_filter($addons, function (Addon $addon = null) use ($where, $am) {
+        $addons = array_filter($addons, function (?Addon $addon = null) use ($where, $am) {
             if ($addon === null) {
                 return false;
             }

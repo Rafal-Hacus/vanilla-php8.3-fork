@@ -23,5 +23,5 @@ interface SiteSectionTotalProviderInterface extends SiteTotalProviderInterface
      *
      * @return int
      */
-    public function calculateSiteTotalCount(SiteSectionInterface $siteSection = null): int;
+    public function calculateSiteTotalCount(?SiteSectionInterface $siteSection = null): int;
 }

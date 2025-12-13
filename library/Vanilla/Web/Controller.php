@@ -61,8 +61,8 @@ abstract class Controller implements InjectableInterface, CacheControlConstantsI
      */
     public function setDependencies(
         SessionInterface $session = null,
-        EventManager $eventManager = null,
-        LocaleInterface $local = null,
+        ?EventManager $eventManager = null,
+        ?LocaleInterface $local = null,
         Upload $upload
     ) {
         $this->session = $session;

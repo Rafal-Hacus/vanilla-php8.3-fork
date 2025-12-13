@@ -79,7 +79,7 @@ class TwigEnhancer
         ConfigurationInterface $config,
         LocaleInterface $locale,
         Gdn_Request $request,
-        BannerImageModel $bannerImageModel = null
+        ?BannerImageModel $bannerImageModel = null
     ) {
         $this->addonManager = $addonManager;
         $this->eventManager = $eventManager;

@@ -119,7 +119,7 @@ class Gdn_Database implements InjectableInterface
      *
      * @param EventManager $eventManager the event manager
      */
-    public function setDependencies(EventManager $eventManager = null)
+    public function setDependencies(?EventManager $eventManager = null)
     {
         $this->eventManager = $eventManager;
     }

@@ -172,7 +172,7 @@ final class LongRunnerResult implements \JsonSerializable
      * @param int|string $failedID The ID of the record.
      * @param \Exception|null $exception Optionally an exception about why the record failed.
      */
-    private function addFailedResult($failedID, \Exception $exception = null)
+    private function addFailedResult($failedID, ?\Exception $exception = null)
     {
         $this->failedIDs[] = $failedID;
 

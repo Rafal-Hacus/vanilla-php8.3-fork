@@ -684,7 +684,7 @@ class Gdn
      *
      * @param \Garden\Container\Container $container
      */
-    public static function setContainer(\Garden\Container\Container $container = null)
+    public static function setContainer(?\Garden\Container\Container $container = null)
     {
         self::$container = $container;
 

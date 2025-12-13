@@ -39,7 +39,7 @@ class Gdn_ApplicationManager
     /**
      *
      */
-    public function __construct(AddonManager $addonManager = null)
+    public function __construct(?AddonManager $addonManager = null)
     {
         $this->addonManager = $addonManager;
     }

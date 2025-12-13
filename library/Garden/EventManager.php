@@ -53,7 +53,7 @@ class EventManager implements EventDispatcherInterface, ListenerProviderInterfac
      *
      * @param ContainerInterface|null $container The container used to fetch lazy classes.
      */
-    public function __construct(ContainerInterface $container = null)
+    public function __construct(?ContainerInterface $container = null)
     {
         $this->container = $container;
     }

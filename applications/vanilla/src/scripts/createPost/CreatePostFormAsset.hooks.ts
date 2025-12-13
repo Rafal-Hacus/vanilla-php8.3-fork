@@ -6,7 +6,7 @@
 
 import { IDiscussion } from "@dashboard/@types/api/discussion";
 import { PostField, PostType } from "@dashboard/postTypes/postType.types";
-import { IGroup } from "@groups/groups/Group.types";
+// import { IGroup } from "@groups/groups/Group.types"; // Groups not available in OSS
 import { IApiError } from "@library/@types/api/core";
 import apiv2 from "@library/apiv2";
 import { ITag } from "@library/features/tags/TagsReducer";
@@ -25,7 +25,7 @@ export interface ICreatePostForm {
     format: string;
     name: string;
     categoryID?: ICategory["categoryID"];
-    groupID?: IGroup["groupID"];
+    groupID?: number; // Groups feature not available in OSS
     pinLocation?: "none" | "category" | "recent";
     pinned?: boolean;
     postTypeID: PostType["postTypeID"];

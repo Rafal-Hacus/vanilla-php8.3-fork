@@ -173,8 +173,8 @@ class LayoutViewModel extends FullRecordCacheModel
     public function getLayoutViews(
         bool $allowNull,
         string $layoutViewType,
-        string $recordType = null,
-        int $recordID = null
+        ?string $recordType = null,
+        ?int $recordID = null
     ): array {
         $where = [];
         if ($layoutViewType != null) {

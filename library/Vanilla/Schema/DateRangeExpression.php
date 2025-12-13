@@ -38,7 +38,7 @@ class DateRangeExpression extends RangeExpression
     /**
      * {@inheritdoc}
      */
-    public static function parse($expr, Schema $valueSchema = null, bool $keepExpr = false)
+    public static function parse($expr, ?Schema $valueSchema = null, bool $keepExpr = false)
     {
         $valueSchema = self::ensureSchema($valueSchema);
 

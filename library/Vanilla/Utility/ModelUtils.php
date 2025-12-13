@@ -128,7 +128,7 @@ class ModelUtils
      * @return Validation
      * @throws ValidationException Throws the exception if `$throw` is true.
      */
-    public static function validationResultToValidationException($model, LocaleInterface $locale = null, $throw = true)
+    public static function validationResultToValidationException($model, ?LocaleInterface $locale = null, $throw = true)
     {
         if ($locale === null) {
             $locale = \Gdn::locale();

@@ -61,7 +61,7 @@ class SchemaForm
     public static function dropDown(
         FormOptions $options,
         FormChoicesInterface $choices,
-        FieldMatchConditional $conditions = null,
+        ?FieldMatchConditional $conditions = null,
         bool $multiple = false
     ): array {
         $result = array_merge(
@@ -94,7 +94,7 @@ class SchemaForm
     public static function textBox(
         FormOptions $options,
         string $type = "text",
-        FieldMatchConditional $conditions = null
+        ?FieldMatchConditional $conditions = null
     ): array {
         $result = [
             "description" => $options->getDescription(),
@@ -123,7 +123,7 @@ class SchemaForm
     public static function richTextBox(
         FormOptions $options,
         string $legend = "",
-        FieldMatchConditional $conditions = null
+        ?FieldMatchConditional $conditions = null
     ): array {
         $result = [
             "description" => $options->getDescription(),
@@ -172,7 +172,7 @@ class SchemaForm
      * @param FieldMatchConditional|null $conditions
      * @return array
      */
-    public static function toggle(FormOptions $options, FieldMatchConditional $conditions = null)
+    public static function toggle(FormOptions $options, ?FieldMatchConditional $conditions = null)
     {
         $result = [
             "description" => $options->getDescription(),
@@ -196,7 +196,7 @@ class SchemaForm
      * @param string|null $labelType
      * @return array
      */
-    public static function checkBox(FormOptions $options, FieldMatchConditional $conditions = null, $labelType = null)
+    public static function checkBox(FormOptions $options, ?FieldMatchConditional $conditions = null, $labelType = null)
     {
         $result = $options->values() + [
             "inputType" => self::CHECKBOX_TYPE,
@@ -223,8 +223,8 @@ class SchemaForm
     public static function radio(
         FormOptions $options,
         FormChoicesInterface $choices,
-        FieldMatchConditional $conditions = null,
-        array $tooltipsPerOption = null
+        ?FieldMatchConditional $conditions = null,
+        ?array $tooltipsPerOption = null
     ) {
         $result = $options->values() + [
             "inputType" => self::RADIO_TYPE,
@@ -251,7 +251,7 @@ class SchemaForm
     public static function radioPicker(
         FormOptions $options,
         FormPickerOptions $pickerOptions,
-        FieldMatchConditional $conditional = null
+        ?FieldMatchConditional $conditional = null
     ): array {
         $result = $options->values() + [
             "inputType" => self::RADIO_PICKER_TYPE,
@@ -279,7 +279,7 @@ class SchemaForm
         FormOptions $options,
         string $reactComponent,
         ?array $componentProps = null,
-        FieldMatchConditional $conditional = null
+        ?FieldMatchConditional $conditional = null
     ): array {
         $result = $options->values() + [
             "inputType" => "custom",
@@ -331,7 +331,7 @@ class SchemaForm
      */
     public static function color(
         FormOptions $options,
-        FieldMatchConditional $conditions = null,
+        ?FieldMatchConditional $conditions = null,
         $defaultBackground = null
     ): array {
         $result = [
@@ -386,7 +386,7 @@ class SchemaForm
      * @param ?FieldMatchConditional $conditions
      * @return array
      */
-    public static function datePicker(FormOptions $options, FieldMatchConditional $conditions = null): array
+    public static function datePicker(FormOptions $options, ?FieldMatchConditional $conditions = null): array
     {
         $result = [
             "description" => $options->getDescription(),
@@ -413,7 +413,7 @@ class SchemaForm
      */
     public static function timeDuration(
         FormOptions $options,
-        FieldMatchConditional $conditions = null,
+        ?FieldMatchConditional $conditions = null,
         null|array $supportedUnits = null
     ): array {
         $result = [

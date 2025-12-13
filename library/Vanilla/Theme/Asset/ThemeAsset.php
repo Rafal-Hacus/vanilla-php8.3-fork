@@ -101,7 +101,7 @@ abstract class ThemeAsset implements \JsonSerializable
      *
      * @return Data
      */
-    public function render(string $asType = null): Data
+    public function render(?string $asType = null): Data
     {
         $result = new Data($this->__toString());
         $result->setHeader("Content-Type", $this->getContentType());

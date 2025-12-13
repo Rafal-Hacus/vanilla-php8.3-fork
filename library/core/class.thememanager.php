@@ -58,7 +58,7 @@ class Gdn_ThemeManager extends Gdn_Pluggable
     /**
      *
      */
-    public function __construct(AddonManager $addonManager = null, $hasRequest = null)
+    public function __construct(?AddonManager $addonManager = null, $hasRequest = null)
     {
         parent::__construct();
         $this->addonManager = $addonManager;

@@ -102,7 +102,7 @@ class Gdn_Model extends Gdn_Pluggable
      * @param Gdn_Validation $validation The validation dependency.
      * If a validation object is not passed in the constructor then one will be created.
      */
-    public function __construct($name = "", Gdn_Validation $validation = null)
+    public function __construct($name = "", ?Gdn_Validation $validation = null)
     {
         if ($name == "") {
             $name = get_class($this);

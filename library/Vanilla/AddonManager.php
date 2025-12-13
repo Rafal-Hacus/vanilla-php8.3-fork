@@ -927,7 +927,7 @@ class AddonManager implements LoggerAwareInterface
      * @param bool $mustExist Whether or not the asset must exist in the addon.
      * @return string
      */
-    public function lookupAsset($subpath, Addon $addon = null, $mustExist = true)
+    public function lookupAsset($subpath, ?Addon $addon = null, $mustExist = true)
     {
         $subpath = "/" . ltrim($subpath, "\\/");
 

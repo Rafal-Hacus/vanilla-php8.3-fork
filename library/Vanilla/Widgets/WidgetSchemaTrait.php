@@ -29,8 +29,8 @@ trait WidgetSchemaTrait
      */
     public static function itemOptionsSchema(
         string $fieldName = "itemOptions",
-        Schema $additionalOptions = null,
-        array $conditions = null
+        ?Schema $additionalOptions = null,
+        ?array $conditions = null
     ): Schema {
         $schema = Schema::parse([
             "imagePlacement:s?" => [
@@ -127,7 +127,7 @@ trait WidgetSchemaTrait
      * @param string|null $description
      * @return Schema
      */
-    public static function borderSchema(string $description = null): Schema
+    public static function borderSchema(?string $description = null): Schema
     {
         $schema = Schema::parse([
             "color?" => [
@@ -263,7 +263,7 @@ trait WidgetSchemaTrait
      * @param FieldMatchConditional|null $conditional
      * @return array
      */
-    public static function getLimitFormOptions(FieldMatchConditional $conditional = null): array
+    public static function getLimitFormOptions(?FieldMatchConditional $conditional = null): array
     {
         return SchemaForm::dropDown(
             new FormOptions(t("Limit"), t("Choose how many records to display.")),

@@ -61,7 +61,7 @@ class SessionModel extends Gdn_Model
      * @return bool|array Current session.
      * @throws \Garden\Schema\ValidationException Exception when insert fails.
      */
-    public function startNewSession(int $userID, string $sessionID = null, array $attributes = [])
+    public function startNewSession(int $userID, ?string $sessionID = null, array $attributes = [])
     {
         $sessionName = "sid";
 
@@ -197,7 +197,7 @@ class SessionModel extends Gdn_Model
      * @param string|null $sessionID Session ID.
      * @return int|false Returns the number of deleted records or **false** on failure.
      */
-    public function expireUserSessions(int $userID, string $sessionID = null)
+    public function expireUserSessions(int $userID, ?string $sessionID = null)
     {
         $where = ["UserID" => $userID];
         if ($sessionID) {
@@ -323,7 +323,7 @@ class SessionModel extends Gdn_Model
      * @param string|null $sessionID
      * @return bool
      */
-    public function sessionExists(int $userID, string $sessionID = null): bool
+    public function sessionExists(int $userID, ?string $sessionID = null): bool
     {
         $queryParams = ["UserID" => $userID];
         if ($sessionID) {

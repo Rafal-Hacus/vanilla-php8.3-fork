@@ -46,8 +46,8 @@ interface SchedulerInterface
     public function addJob(
         string $jobType,
         $message = [],
-        JobPriority $jobPriority = null,
-        int $delay = null
+        ?JobPriority $jobPriority = null,
+        ?int $delay = null
     ): TrackingSlipInterface;
 
     /**

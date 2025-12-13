@@ -453,7 +453,7 @@ class BlotGroup implements NestableItemInterface, NestingParentInterface
      * @param int|null $from The index to search from.
      * @return AbstractLineTerminatorBlot|null
      */
-    public function getTerminatorBlot(int $from = null): ?AbstractLineTerminatorBlot
+    public function getTerminatorBlot(?int $from = null): ?AbstractLineTerminatorBlot
     {
         if ($this->isEmpty()) {
             return null;
@@ -503,7 +503,7 @@ class BlotGroup implements NestableItemInterface, NestingParentInterface
      * @param int $from
      * @param int|null $to
      */
-    public function replace(array $new, int $from = 0, int $to = null): void
+    public function replace(array $new, int $from = 0, ?int $to = null): void
     {
         if ($to === null) {
             $to = count($this->getBlotsAndGroups());

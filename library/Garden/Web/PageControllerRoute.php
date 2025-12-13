@@ -24,7 +24,7 @@ class PageControllerRoute extends ResourceRoute
      * @param class-string<PageDispatchController> $controllerClass The class for the controller.
      * @param ContainerInterface|null $container An optional container used to create controller instances.
      */
-    public function __construct($basePath, $controllerClass, ContainerInterface $container = null)
+    public function __construct($basePath, $controllerClass, ?ContainerInterface $container = null)
     {
         parent::__construct($basePath, "", $container);
 

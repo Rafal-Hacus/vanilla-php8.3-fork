@@ -33,7 +33,7 @@ abstract class ThemedPage extends Page
         \Gdn_Session $session,
         PageHead $pageHead,
         MasterViewRenderer $masterViewRenderer,
-        ThemePreloadProvider $themeProvider = null
+        ?ThemePreloadProvider $themeProvider = null
     ) {
         // Default required to conform to interface
         parent::setDependencies($siteMeta, $request, $session, $pageHead, $masterViewRenderer);

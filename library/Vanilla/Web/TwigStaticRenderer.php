@@ -62,7 +62,7 @@ class TwigStaticRenderer
     public static function renderReactModule(
         string $componentName,
         array $props,
-        string $cssClass = null,
+        ?string $cssClass = null,
         string $htmlContents = "",
         string $htmlTag = "div"
     ): string {

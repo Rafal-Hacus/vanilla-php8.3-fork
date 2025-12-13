@@ -483,7 +483,7 @@ class Gdn_Session implements LoggerAwareInterface
         $userID = false,
         bool $setIdentity = true,
         bool $persist = false,
-        string $sessionID = null,
+        ?string $sessionID = null,
         $attributes = []
     ) {
         if (!c("Garden.Installed", false)) {
@@ -853,7 +853,7 @@ class Gdn_Session implements LoggerAwareInterface
         $value = "",
         bool $unsetOnRetrieve = true,
         string $expireInternal = "",
-        string &$sessionID = null
+        ?string &$sessionID = null
     ) {
         if ($name == "") {
             return;

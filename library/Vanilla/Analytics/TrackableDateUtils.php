@@ -42,7 +42,7 @@ final class TrackableDateUtils
      * @param DateTimeZone|null $timeZone Time zone to represent the specified time in.
      * @return array
      */
-    public static function getDate($time = "now", DateTimeZone $timeZone = null)
+    public static function getDate($time = "now", ?DateTimeZone $timeZone = null)
     {
         $dateTime = self::getDateTime($time, $timeZone);
 
@@ -61,7 +61,7 @@ final class TrackableDateUtils
      * @param DateTimeZone|null $timeZone Time zone to represent the specified time in.
      * @return array
      */
-    public static function getDateTime($time = null, DateTimeZone $timeZone = null)
+    public static function getDateTime($time = null, ?DateTimeZone $timeZone = null)
     {
         if (is_a($time, \DateTimeInterface::class)) {
             $dateTime = $time;

@@ -197,9 +197,9 @@ class ReactionModel extends Gdn_Model implements EventFromRowInterface, LoggerAw
         string $recordType,
         int $id,
         bool $restricted = true,
-        string $urlCode = null,
+        ?string $urlCode = null,
         int $offset = 0,
-        int $limit = null
+        ?int $limit = null
     ): array {
         [$record, $model, $_] = $this->getRow($recordType, $id);
         $record["recordType"] = $recordType;
@@ -1151,7 +1151,7 @@ class ReactionModel extends Gdn_Model implements EventFromRowInterface, LoggerAw
         string $recordType,
         int $recordID,
         string $reactionUrlCode,
-        int $userID = null,
+        ?int $userID = null,
         bool $selfReact = false,
         $force = null
     ) {

@@ -469,7 +469,7 @@ class Gdn_Validation
      * @param string|callable $rule The rule to be added.
      * @param bool $filter Whether or not the rule filters the value. This is ignored when the rule is a callback.
      */
-    public function addRule(string $name, $rule, bool $filter = null)
+    public function addRule(string $name, $rule, ?bool $filter = null)
     {
         // Callback rules are always filtered.
         if (!is_string($rule) && is_callable($rule)) {

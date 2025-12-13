@@ -83,7 +83,7 @@ class DebugUtils
      * @param int $offset The part of the trace to start at.
      * @return string Returns a string with filenames and line numbers.
      */
-    public static function stackTraceString(array $trace, int $limit = null, int $offset = 0): string
+    public static function stackTraceString(array $trace, ?int $limit = null, int $offset = 0): string
     {
         $trace = array_slice($trace, $offset, $limit);
         $r = [];

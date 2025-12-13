@@ -347,7 +347,7 @@ class Gdn_CookieIdentity
      * @throws Exception If the cookie salt is empty.
      * @return array|bool
      */
-    public function setIdentity(int $userID = null, bool $persist = false, string $sessionID = null)
+    public function setIdentity(?int $userID = null, bool $persist = false, ?string $sessionID = null)
     {
         if (empty($this->CookieSalt)) {
             throw new Exception("Cookie salt is empty.", 500);

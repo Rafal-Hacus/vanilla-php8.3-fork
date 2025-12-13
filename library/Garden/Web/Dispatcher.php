@@ -73,10 +73,10 @@ class Dispatcher implements LoggerAwareInterface
      */
     public function __construct(
         LocaleInterface $locale = null,
-        ContainerInterface $container = null,
-        EventManager $eventManager = null,
-        Timers $timers = null,
-        CustomPageModel $customPageModel = null
+        ?ContainerInterface $container = null,
+        ?EventManager $eventManager = null,
+        ?Timers $timers = null,
+        ?CustomPageModel $customPageModel = null
     ) {
         $this->middleware = function (RequestInterface $request): Data {
             return $this->dispatchInternal($request);
@@ -354,7 +354,7 @@ class Dispatcher implements LoggerAwareInterface
      * @param array|null $meta The meta to merge.
      * @param bool $replace Whether to replace existing items or not.
      */
-    private function mergeMeta(Data $data, array $meta = null, $replace = false)
+    private function mergeMeta(Data $data, ?array $meta = null, $replace = false)
     {
         if (empty($meta)) {
             return;

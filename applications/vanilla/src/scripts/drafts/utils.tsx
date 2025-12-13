@@ -268,7 +268,7 @@ export const mapDraftToPostFormValues = (draft: DraftsApi.PostParams): Partial<I
                 pinned: draftMeta?.pinned ?? false,
                 categoryID: draftMeta?.categoryID,
                 postTypeID: draftMeta?.postTypeID,
-                groupID: groupID,
+                groupID: typeof groupID === "string" ? parseInt(groupID, 10) : groupID,
             };
         } else {
             logError("Invalid draft meta", draft);

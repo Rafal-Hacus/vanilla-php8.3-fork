@@ -477,7 +477,7 @@ class TestDispatcher
      *
      * @param \Gdn_Controller|null $controller Optionally pass another controller to make this assertion.
      */
-    public function assertNoFormErrors(\Gdn_Controller $controller = null): void
+    public function assertNoFormErrors(?\Gdn_Controller $controller = null): void
     {
         $controller = $controller ?? $this->lastController;
         TestCase::assertNotNull($controller, "The controller was not properly set to assert.");

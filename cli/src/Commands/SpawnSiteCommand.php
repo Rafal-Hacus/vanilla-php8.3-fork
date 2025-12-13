@@ -97,7 +97,7 @@ class SpawnSiteCommand extends Console\Command\Command
         $this->logger()->info("Creating database.");
         $dbname = str_replace("-", "_", slugify("vanilla_$basePath"));
         try {
-            $pdo = new \PDO("mysql:host=database", "root", "");
+            $pdo = new \PDO("mysql:host=localhost", "root", "");
         } catch (\PDOException $ex) {
             $this->logger()->error("Could not connect to database. Did you forget to start docker?");
             exit($ex->getCode());
@@ -106,7 +106,7 @@ class SpawnSiteCommand extends Console\Command\Command
         $this->logger()->title("Creating Site");
         $this->logger()->info("Creating site at $baseUrl.");
 
-        putenv("TEST_DB_HOST=database");
+        putenv("TEST_DB_HOST=localhost");
         putenv("TEST_DB_USER=root");
         $testClient = new E2ETestClient($basePath, "vanilla.local");
         $testClient->dbPrefix = "vanilla_";

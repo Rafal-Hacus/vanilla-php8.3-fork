@@ -72,7 +72,7 @@ class NotFoundFormat implements FormatInterface
     /**
      * @inheritdoc
      */
-    public function renderExcerpt($content, ?int $length = null, string $query = null): string
+    public function renderExcerpt($content, ?int $length = null, ?string $query = null): string
     {
         return $this->getErrorMessage();
     }

@@ -23,7 +23,7 @@ class ReactSingleChildSchema extends Schema
      * @param string|null $description Set a custom description.
      * @param string $hydrateGroup
      */
-    public function __construct(string $description = null, string $hydrateGroup = ReactResolver::HYDRATE_GROUP_REACT)
+    public function __construct(?string $description = null, string $hydrateGroup = ReactResolver::HYDRATE_GROUP_REACT)
     {
         parent::__construct([
             "type" => "object",

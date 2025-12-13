@@ -170,7 +170,7 @@ class Model implements InjectableInterface
      * @param int|null $limit
      * @return int
      */
-    public function selectPagingCount(array $where, int $limit = null): int
+    public function selectPagingCount(array $where, ?int $limit = null): int
     {
         $limit = $limit ?? \Gdn::config("Vanilla.APIv2.MaxCount", 10000);
         $innerQuery = $this->createSql()

@@ -33,7 +33,7 @@ class TestAddonManager extends AddonManager
     /**
      * @inheritdoc
      */
-    public function __construct(array $scanDirs = null, $cacheDir = "")
+    public function __construct(?array $scanDirs = null, $cacheDir = "")
     {
         $cacheDir = $cacheDir ?: PATH_ROOT . "/tests/cache/am/test-manager";
 

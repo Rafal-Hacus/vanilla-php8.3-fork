@@ -20,7 +20,7 @@ class ReactChildrenSchema extends Schema
      *
      * @param string|null $description Set a custom description.
      */
-    public function __construct(string $description = null)
+    public function __construct(?string $description = null)
     {
         $childSchema = (new ReactSingleChildSchema())->getSchemaArray();
         parent::__construct([

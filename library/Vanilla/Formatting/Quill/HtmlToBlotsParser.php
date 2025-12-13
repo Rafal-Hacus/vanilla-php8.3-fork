@@ -27,7 +27,7 @@ class HtmlToBlotsParser
     public static function parseInlineHtml(
         string $html,
         BlotGroupCollection $parent,
-        AbstractLineTerminatorBlot $terminator = null
+        ?AbstractLineTerminatorBlot $terminator = null
     ): array {
         $dom = new HtmlDocument($html);
         $root = $dom->getRoot();

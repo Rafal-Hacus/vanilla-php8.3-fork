@@ -25,7 +25,7 @@ class AnalyticsActionsProvider implements ReduxActionProviderInterface
      *
      * @param Analytics\ClientInterface $analyticsClient
      */
-    public function __construct(Analytics\ClientInterface $analyticsClient = null)
+    public function __construct(?Analytics\ClientInterface $analyticsClient = null)
     {
         $this->analyticsClient = $analyticsClient;
     }

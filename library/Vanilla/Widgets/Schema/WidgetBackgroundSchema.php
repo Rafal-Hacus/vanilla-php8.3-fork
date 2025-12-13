@@ -22,7 +22,7 @@ class WidgetBackgroundSchema extends Schema
      * @param string|null $description Set a custom description.
      * @param bool|null $withXControls Whether to include x-controls.
      */
-    public function __construct(string $description = null, bool $withXControls = true, bool $asXControlGroup = false)
+    public function __construct(?string $description = null, bool $withXControls = true, bool $asXControlGroup = false)
     {
         $colorSchema = [
             "type" => "string",

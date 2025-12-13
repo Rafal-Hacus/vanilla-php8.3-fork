@@ -66,8 +66,8 @@ class ResourceRoute extends Route
     public function __construct(
         $basePath = "/",
         $controllerPattern = "%sController",
-        ContainerInterface $container = null,
-        ClassLocator $classLocator = null
+        ?ContainerInterface $container = null,
+        ?ClassLocator $classLocator = null
     ) {
         parent::__construct();
         $this->setBasePath($basePath);

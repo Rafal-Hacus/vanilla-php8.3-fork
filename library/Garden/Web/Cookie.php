@@ -76,7 +76,7 @@ class Cookie
      *
      * @param array $cookies The initial cookies array or **null** to use the **$_COOKIE** super global.
      */
-    public function __construct(array $cookies = null)
+    public function __construct(?array $cookies = null)
     {
         if ($cookies === null) {
             $cookies = $_COOKIE;

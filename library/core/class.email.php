@@ -696,7 +696,7 @@ class Gdn_Email extends Gdn_Pluggable implements LoggerAwareInterface
      *
      * @return string
      */
-    public function getFooterContent(string $content = null): string
+    public function getFooterContent(?string $content = null): string
     {
         $footerConfig = $content ?? $this->config->get("Garden.Email.Footer", "");
         if (empty(trim($footerConfig))) {

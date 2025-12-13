@@ -250,7 +250,8 @@ SQL
                 PDO::ATTR_PERSISTENT => false,
                 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
             ];
-            $dsn = "mysql:host=" . $this->getDbHost() . ";charset=utf8mb4";
+           // $dsn = "mysql:host=" . $this->getDbHost() . ";charset=utf8mb4";
+            $dsn = "mysql:host=localhost" . ";charset=utf8mb4";
             if ($db) {
                 $dbname = $this->getDbName();
                 $dsn .= ";dbname=$dbname";
@@ -353,10 +354,15 @@ SQL
         ]);
         self::setAPIKey($apiKey);
 
+        /** 
         $r = $this->post("/utility/update.json");
         if (!$r["Success"]) {
             throw new \Exception("Utility update failed.");
-        }
+            echo "\n\n--- UTILITY UPDATE RESPONSE ---\n";
+            print_r($r);
+            echo "\n-------------------------------\n\n";
+        }*/
+        
 
         // This can be flaky in docker.
         // Give some time for configs to propagate back.

@@ -101,7 +101,7 @@ EOT;
      * @param string|null $op2 Filter operator.
      * @param mixed|null $value2 Filter value.
      */
-    public function __construct(string $op, $value, string $op2 = null, $value2 = null)
+    public function __construct(string $op, $value, ?string $op2 = null, $value2 = null)
     {
         $this->addValue($op, $value);
         if ($op2 !== null && $value2 !== null) {
@@ -117,7 +117,7 @@ EOT;
      * @param bool $keepExpr
      * @return self
      */
-    public static function parse($expr, Schema $valueSchema = null, bool $keepExpr = false)
+    public static function parse($expr, ?Schema $valueSchema = null, bool $keepExpr = false)
     {
         $validation = new Validation();
 

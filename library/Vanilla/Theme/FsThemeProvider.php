@@ -147,7 +147,7 @@ class FsThemeProvider implements ThemeProviderInterface
     /**
      * @inheritdoc
      */
-    public function setPreviewTheme($themeID, int $revisionID = null): Theme
+    public function setPreviewTheme($themeID, ?int $revisionID = null): Theme
     {
         $theme = $this->getTheme($themeID);
         $this->themeHelper->setSessionPreviewTheme($theme);

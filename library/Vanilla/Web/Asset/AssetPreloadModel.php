@@ -41,7 +41,7 @@ class AssetPreloadModel
     public function addScript(
         AssetInterface $asset,
         string $rel = AssetPreloader::REL_PRELOAD,
-        string $uniqueKey = null
+        ?string $uniqueKey = null
     ) {
         if ($uniqueKey !== null) {
             if (in_array($uniqueKey, $this->uniqueKeys)) {
@@ -71,7 +71,7 @@ class AssetPreloadModel
     public function addStylesheet(
         AssetInterface $asset,
         string $rel = AssetPreloader::REL_PRELOAD,
-        string $uniqueKey = null
+        ?string $uniqueKey = null
     ) {
         if ($uniqueKey !== null) {
             if (in_array($uniqueKey, $this->uniqueKeys)) {

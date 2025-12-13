@@ -165,7 +165,7 @@ class Logger implements LoggerInterface
      * @param callable $filter Signature: (int $level, string $message, array $context)
      * @return Logger Returns $this for fluent calls.
      */
-    public function addLogger(LoggerInterface $logger, $level = null, callable $filter = null)
+    public function addLogger(LoggerInterface $logger, $level = null, ?callable $filter = null)
     {
         // Make a small attempt to prevent infinite cycles by disallowing all logger chaining.
         if ($logger instanceof Logger) {

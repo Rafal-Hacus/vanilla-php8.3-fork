@@ -63,7 +63,7 @@ interface ThemeProviderInterface
      * @param int $revisionID Theme revision ID.
      * @return Theme
      */
-    public function setPreviewTheme($themeID, int $revisionID = null): Theme;
+    public function setPreviewTheme($themeID, ?int $revisionID = null): Theme;
 
     /**
      * Get master (parent) theme key.

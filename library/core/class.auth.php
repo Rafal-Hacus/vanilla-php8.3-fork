@@ -530,7 +530,7 @@ class Gdn_Auth extends Gdn_Pluggable
      * @param bool $persist Is this sessions persistent.
      * @param string|null $sessionID DB Session ID.
      */
-    public function setIdentity(int $value = null, bool $persist = false, string $sessionID = null)
+    public function setIdentity(?int $value = null, bool $persist = false, ?string $sessionID = null)
     {
         $this->_Identity->setIdentity($value, $persist, $sessionID);
     }

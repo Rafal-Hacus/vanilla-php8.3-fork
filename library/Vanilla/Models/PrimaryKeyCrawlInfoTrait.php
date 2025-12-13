@@ -40,7 +40,7 @@ trait PrimaryKeyCrawlInfoTrait
      *
      * @return array
      */
-    protected function getCrawlInfoFromPrimaryKey(string $url, string $parameter, string $uniqueIDField = null): array
+    protected function getCrawlInfoFromPrimaryKey(string $url, string $parameter, ?string $uniqueIDField = null): array
     {
         $pk = $this->getPrimaryKey();
         if (count($pk) !== 1) {

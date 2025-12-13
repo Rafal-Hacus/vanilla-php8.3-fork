@@ -76,7 +76,7 @@ class TwigThemeAsset extends HtmlThemeAsset
     /**
      * @inheritdoc
      */
-    public function render(string $asType = null): Data
+    public function render(?string $asType = null): Data
     {
         switch ($asType) {
             case ThemeAssetFactory::ASSET_TYPE_TWIG:

@@ -88,7 +88,7 @@ class Gdn_PluginManager extends Gdn_Pluggable implements ContainerInterface
      * @param AddonManager $addonManager The addon manager that manages all of the addons.
      * @param EventManager $eventManager The event manager that handles all plugin events.
      */
-    public function __construct(AddonManager $addonManager = null, EventManager $eventManager = null)
+    public function __construct(?AddonManager $addonManager = null, ?EventManager $eventManager = null)
     {
         parent::__construct();
         $this->addonManager = $addonManager;
