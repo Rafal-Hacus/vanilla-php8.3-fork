@@ -16,6 +16,9 @@ class UserProfileFieldsExpander extends \Vanilla\Web\AbstractApiExpander
     /** @var string  */
     private $baseKey = "profileFields";
 
+    /** @var ProfileFieldModel */
+    private $profileFieldModel;
+
     /**
      * D.I.
      *

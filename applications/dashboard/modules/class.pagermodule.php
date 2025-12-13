@@ -89,6 +89,15 @@ class PagerModule extends Gdn_Module
      */
     protected $_Totalled;
 
+    /** @var string|null HTML to display before the pager. */
+    public $HtmlBefore;
+
+    /** @var string|null HTML to display after the pager. */
+    public $HtmlAfter;
+
+    /** @var int|null The total number of pages. */
+    protected $_PageCount;
+
     /**
      *
      *

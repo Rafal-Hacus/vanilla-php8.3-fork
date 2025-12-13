@@ -22,6 +22,33 @@ class DiscussionsController extends VanillaController
     /** @var array Models to include. */
     public $Uses = ["Database", "DiscussionModel", "Form"];
 
+    /** @var Gdn_Database */
+    public $Database;
+
+    /** @var DiscussionModel */
+    public $DiscussionModel;
+
+    /** @var Gdn_Form */
+    public $Form;
+
+    /** @var int */
+    public $CountCommentsPerPage;
+
+    /** @var mixed */
+    public $AnnounceData;
+
+    /** @var mixed */
+    public $Announcements;
+
+    /** @var mixed */
+    public $DiscussionData;
+
+    /** @var mixed */
+    public $Discussions;
+
+    /** @var PagerModule */
+    public $Pager;
+
     /** @var boolean Value indicating if discussion options should be displayed when rendering the discussion view.*/
     public $ShowOptions;
 

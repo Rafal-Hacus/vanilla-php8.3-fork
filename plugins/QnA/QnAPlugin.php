@@ -118,6 +118,9 @@ class QnAPlugin extends Gdn_Plugin implements LoggerAwareInterface, PsrEventHand
     /** @var QnaModel */
     private $qnaModel;
 
+    /** @var EventManager */
+    private $eventManager;
+
     public const DISCUSSION_STATUS_UNANSWERED = 1;
     public const DISCUSSION_STATUS_ANSWERED = 2;
     public const DISCUSSION_STATUS_ACCEPTED = 3;
