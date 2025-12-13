@@ -1066,6 +1066,8 @@ class Gdn_Request implements RequestInterface
 
         // Get the dispatch string from the URI
         if ($path !== false) {
+            // Strip query string and fragment from path
+            $path = preg_replace('/[#?].*$/', '', $path);
             $this->path(trim($path, "/"));
         } else {
             $expression =
