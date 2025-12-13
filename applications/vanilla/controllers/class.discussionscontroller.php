@@ -52,6 +52,9 @@ class DiscussionsController extends VanillaController
     /** @var boolean Value indicating if discussion options should be displayed when rendering the discussion view.*/
     public $ShowOptions;
 
+    /** @var bool */
+    public $CanEditDiscussions;
+
     /** @var object Category object. Used to limit which discussions are returned to a particular category. */
     public $Category;
 
