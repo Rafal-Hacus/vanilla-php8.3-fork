@@ -16,6 +16,12 @@ class SocialController extends DashboardController
     /** @var array Models to automatically instantiate. */
     public $Uses = ["Form", "Database"];
 
+    /** @var Gdn_Form */
+    public $Form;
+
+    /** @var Gdn_Database */
+    public $Database;
+
     /**
      * Runs before every call to this controller.
      */

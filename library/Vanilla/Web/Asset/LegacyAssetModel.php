@@ -272,7 +272,7 @@ class LegacyAssetModel extends Gdn_Model
                 return $info;
             }
         }
-        if (!(stringEndsWith($filename, "custom.css") || stringEndsWith($filename, "customadmin.css"))) {
+        if (!(stringEndsWith($filename, "custom.css") || stringEndsWith($filename, "customadmin.css") || stringEndsWith($filename, "custom_default.css"))) {
             trace("Could not find file '$filename' in folder '$folder'.");
         }
 
@@ -368,7 +368,7 @@ class LegacyAssetModel extends Gdn_Model
                 return $info;
             }
         }
-        if (!stringEndsWith($filename, "custom.js")) {
+        if (!(stringEndsWith($filename, "custom.js") || stringEndsWith($filename, "admin.ts"))) {
             trace("Could not find file '$filename' in folder '$folder'.");
         }
 

@@ -23,11 +23,17 @@ class UserController extends DashboardController
     /** @var array Models to automatically instantiate. */
     public $Uses = ["Database", "Form"];
 
+    /** @var Gdn_Database */
+    public $Database;
+
     /** @var Gdn_Form */
     public $Form;
 
     /** @var UserModel */
     public $userModel;
+
+    /** @var Gdn_DataSet */
+    public $UserData;
 
     /**
      * Configure the controller.

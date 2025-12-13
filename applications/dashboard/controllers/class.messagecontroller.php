@@ -19,6 +19,9 @@ class MessageController extends DashboardController
     /** @var Gdn_Form */
     public $Form;
 
+    /** @var Gdn_DataSet */
+    public $MessageData;
+
     /**
      * {@inheritdoc}
      */

@@ -19,6 +19,12 @@ class EmbedController extends DashboardController
     /** @var array Models to include. */
     public $Uses = ["Database", "Form"];
 
+    /** @var Gdn_Database */
+    public $Database;
+
+    /** @var Gdn_Form */
+    public $Form;
+
     /**
      * Default method.
      */

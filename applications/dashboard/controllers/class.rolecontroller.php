@@ -24,6 +24,9 @@ class RoleController extends DashboardController
     /** @var array Models to automatically instantiate. */
     public $Uses = ["Database", "Form", "RoleModel"];
 
+    /** @var Gdn_Database */
+    public $Database;
+
     /** @var RoleModel */
     public $RoleModel;
 

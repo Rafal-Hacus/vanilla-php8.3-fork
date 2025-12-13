@@ -31,6 +31,9 @@ class VanillaSettingsController extends Gdn_Controller
     /** @var array Models to include. */
     public $Uses = ["Database", "Form", "CategoryModel"];
 
+    /** @var Gdn_Database */
+    public $Database;
+
     /** @var CategoryModel */
     public $CategoryModel;
 

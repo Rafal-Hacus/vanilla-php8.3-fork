@@ -16,7 +16,7 @@ foreach ($this->ActiveUserData as $userdata) {
         ->addMeta(Gdn_Format::date(val('DateLastActive', $user), 'html'));
     $leaderboard->addRow([
         'users' => $userBlock,
-        'count-comments' => number_format($user->CountComments)
+        'count-comments' => number_format($user->CountComments ?? 0)
     ]);
 }
 ?>

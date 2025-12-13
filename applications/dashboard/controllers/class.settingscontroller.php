@@ -34,11 +34,38 @@ class SettingsController extends DashboardController
     /** @var array Models to automatically instantiate. */
     public $Uses = ["Form", "Database"];
 
+    /** @var Gdn_Database */
+    public $Database;
+
     /** @var string */
     public $ModuleSortContainer = "Dashboard";
 
     /** @var Gdn_Form */
     public $Form;
+
+    /** @var Gdn_DataSet */
+    public $ActiveUserData;
+
+    /** @var Gdn_DataSet */
+    public $RoleData;
+
+    /** @var array */
+    public $ExistingRoleInvitations;
+
+    /** @var string */
+    public $InviteExpiration;
+
+    /** @var int */
+    public $InviteTarget;
+
+    /** @var array */
+    public $RegistrationMethods;
+
+    /** @var array */
+    public $InvitationOptions;
+
+    /** @var array */
+    public $InviteExpirationOptions;
 
     /** @var array List of permissions that should all have access to main dashboard. */
     public $RequiredAdminPermissions = [];
